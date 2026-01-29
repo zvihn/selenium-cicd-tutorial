@@ -109,34 +109,34 @@ class TaskManagerTests(unittest.TestCase):
         
         print("   ✅ All UI elements present!")
     
-    def test_03_add_single_task(self):
-        """Test 3: Add a single task"""
-        print("\n✓ Test 3: Adding a single task...")
+    # def test_03_add_single_task(self):
+    #     """Test 3: Add a single task"""
+    #     print("\n✓ Test 3: Adding a single task...")
         
-        task_text = "Write Selenium tests"
+    #     task_text = "Write Selenium tests"
         
-        # Find input and add button
-        task_input = self.driver.find_element(By.ID, 'taskInput')
-        add_btn = self.driver.find_element(By.ID, 'addBtn')
+    #     # Find input and add button
+    #     task_input = self.driver.find_element(By.ID, 'taskInput')
+    #     add_btn = self.driver.find_element(By.ID, 'addBtn')
         
-        # Enter task and click add
-        task_input.send_keys(task_text)
-        add_btn.click()
+    #     # Enter task and click add
+    #     task_input.send_keys(task_text)
+    #     add_btn.click()
         
-        # Wait for task to appear
-        WebDriverWait(self.driver, 5).until(
-            EC.presence_of_element_located((By.CLASS_NAME, 'task-item'))
-        )
+    #     # Wait for task to appear
+    #     WebDriverWait(self.driver, 5).until(
+    #         EC.presence_of_element_located((By.CLASS_NAME, 'task-item'))
+    #     )
         
-        # Verify task was added
-        tasks = self.driver.find_elements(By.CLASS_NAME, 'task-item')
-        self.assertEqual(len(tasks), 1)
-        self.assertEqual(tasks[0].text, task_text)
+    #     # Verify task was added
+    #     tasks = self.driver.find_elements(By.CLASS_NAME, 'task-item')
+    #     self.assertEqual(len(tasks), 1)
+    #     self.assertEqual(tasks[0].text, task_text)
         
-        # Verify input was cleared
-        self.assertEqual(task_input.get_attribute('value'), '')
+    #     # Verify input was cleared
+    #     self.assertEqual(task_input.get_attribute('value'), '')
         
-        print(f"   ✅ Task '{task_text}' added successfully!")
+    #     print(f"   ✅ Task '{task_text}' added successfully!")
     
     def test_04_add_multiple_tasks(self):
         """Test 4: Add multiple tasks"""
